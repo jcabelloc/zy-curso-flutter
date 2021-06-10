@@ -1,4 +1,5 @@
 import 'package:clima_app/screens/location_screen.dart';
+import 'package:clima_app/services/location.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -30,6 +31,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   Future<dynamic> getLocationWeather() async {
+    print('Obteniendo coordenadas');
+    Location location = Location();
+    await location.getCurrentLocation();
+    print('lat: ${location.latitude}, long: ${location.longitude}');
+
     print('Obteniendo informacion del clima');
     dynamic data = await Future.delayed(Duration(seconds: 3), () {
       return {
