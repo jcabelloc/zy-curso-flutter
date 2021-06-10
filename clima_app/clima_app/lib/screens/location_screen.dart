@@ -1,3 +1,4 @@
+import 'package:clima_app/screens/city_screen.dart';
 import 'package:clima_app/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -37,24 +38,37 @@ class _LocationScreenState extends State<LocationScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  IconButton(
-                    onPressed: () async {},
-                    icon: Icon(
-                      Icons.near_me,
-                      size: 50.0,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: () async {},
+                      icon: Icon(
+                        Icons.near_me,
+                        size: 30.0,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () async {},
-                    icon: Icon(
-                      Icons.location_city,
-                      size: 50.0,
+                    IconButton(
+                      onPressed: () async {
+                        var typedName = await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return CityScreen();
+                            },
+                          ),
+                        );
+                        print(typedName);
+                      },
+                      icon: Icon(
+                        Icons.location_city,
+                        size: 30.0,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               Padding(
                 padding: EdgeInsets.only(left: 15.0),
