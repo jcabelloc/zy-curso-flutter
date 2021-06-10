@@ -75,7 +75,10 @@ class _LocationScreenState extends State<LocationScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     IconButton(
-                      onPressed: () async {},
+                      onPressed: () async {
+                        var weatherData = await weather.getLocationWeather();
+                        updateUI(weatherData);
+                      },
                       icon: Icon(
                         Icons.near_me,
                         size: 30.0,
@@ -92,6 +95,12 @@ class _LocationScreenState extends State<LocationScreen> {
                           ),
                         );
                         print(typedName);
+                        if (typedName != null) {
+                          var weatherData =
+                              await weather.getCityWeather(typedName);
+                          print(weatherData);
+                          updateUI(weatherData);
+                        }
                       },
                       icon: Icon(
                         Icons.location_city,
