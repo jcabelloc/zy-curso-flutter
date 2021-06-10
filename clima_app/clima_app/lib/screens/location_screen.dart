@@ -1,4 +1,5 @@
 import 'package:clima_app/screens/city_screen.dart';
+import 'package:clima_app/services/weather_model.dart';
 import 'package:clima_app/utilities/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ class _LocationScreenState extends State<LocationScreen> {
   String weatherIcon;
   String cityName;
   String weatherMessage;
+  WeatherModel weather = WeatherModel();
 
   @override
   void initState() {
@@ -33,10 +35,19 @@ class _LocationScreenState extends State<LocationScreen> {
         cityName = '';
         return;
       }
+      temperature =
+          double.parse(weatherData['main']['temp'].toString()).toInt();
+      var condition = weatherData['weather'][0]['id'];
+      weatherIcon = weather.getWeatherIcon(condition);
+      cityName = weatherData['name'];
+      weatherMessage = weather.getMessage(temperature);
+      /*
       temperature = weatherData['temperature'];
       weatherIcon = weatherData['weatherIcon'];
       weatherMessage = weatherData['weatherMessage'];
       cityName = weatherData['cityName'];
+
+       */
     });
   }
 

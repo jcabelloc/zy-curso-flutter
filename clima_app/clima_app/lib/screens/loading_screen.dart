@@ -1,5 +1,6 @@
 import 'package:clima_app/screens/location_screen.dart';
 import 'package:clima_app/services/location.dart';
+import 'package:clima_app/services/weather_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -16,8 +17,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getLocationData() async {
-    var weatherData = await getLocationWeather();
-
+    var weatherData = await WeatherModel().getLocationWeather();
+    print(weatherData);
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -29,7 +30,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
       ),
     );
   }
-
+  /*
   Future<dynamic> getLocationWeather() async {
     print('Obteniendo coordenadas');
     Location location = Location();
@@ -47,6 +48,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
     });
     return data;
   }
+
+   */
 
   @override
   Widget build(BuildContext context) {
