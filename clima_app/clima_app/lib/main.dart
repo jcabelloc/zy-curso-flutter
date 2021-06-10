@@ -1,3 +1,4 @@
+import 'package:clima_app/screens/loading_screen.dart';
 import 'package:clima_app/screens/location_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.dark(),
-      home: LocationScreen(),
+      home: LoadingScreen(),
     );
   }
 }
