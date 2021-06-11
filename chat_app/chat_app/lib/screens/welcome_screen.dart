@@ -1,3 +1,4 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:chat_app/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 
@@ -52,10 +53,23 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     height: controller.value * 60.0,
                   ),
                 ),
+                DefaultTextStyle(
+                  style: const TextStyle(
+                    fontSize: 30.0,
+                    fontFamily: 'Agne',
+                    color: Colors.black54,
+                  ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText('Flash Chat'),
+                    ],
+                  ),
+                ),
+                /*
                 Text(
                   'Flash Chat',
                   style: TextStyle(fontSize: curvedAnimation.value * 36),
-                ),
+                ),*/
               ],
             ),
             SizedBox(
